@@ -1,0 +1,197 @@
+---
+title: "RWorksheet3b"
+output: pdf_document
+date: "2023-10-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+
+Respondents <- c(seq(1,20))
+Sex <- c(2,2,1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,2)
+Father_Occupation <- c(1,3,3,3,1,2,3,1,1,1,3,2,1,3,3,1,3,1,2,1)
+PersonsAtHome <- c(5,7,3,8,5,9,6,7,8,4,7,5,4,7,8,8,3,11,7,6)
+SiblingsAtSchool <- c(6,4,4,1,2,1,5,3,1,2,3,2,5,5,2,1,2,5,3,2)
+TypeOfHouses <- c (1,2,3,1,1,3,3,1,2,3,2,3,2,2,3,3,3,3,3,2)
+data_display <- data.frame(Respondents, Sex, Father_Occupation, PersonsAtHome, SiblingsAtSchool, TypeOfHouses)
+data_display
+#Respondents Sex Father_Occupation PersonsAtHome SiblingsAtSchool TypeOfHouses
+#1            1   2                 1             5                6            1
+#2            2   2                 3             7                4            2
+#3            3   1                 3             3                4            3
+#4            4   2                 3             8                1            1
+#5            5   2                 1             5                2            1
+#6            6   2                 2             9                1            3
+#7            7   2                 3             6                5            3
+#8            8   2                 1             7                3            1
+#9            9   2                 1             8                1            2
+#10          10   2                 1             4                2            3
+#11          11   1                 3             7                3            2
+#12          12   2                 2             5                2            3
+#13          13   2                 1             4                5            2
+#14          14   2                 3             7                5            2
+#15          15   2                 3             8                2            3
+#16          16   2                 1             8                1            3
+#17          17   2                 3             3                2            3
+#18          18   2                 1            11                5            3
+#19          19   1                 2             7                3            3
+#20          20   2                 1             6                2            2
+
+#b
+#in this dataset includes information from 20 respondents. It covers their gender, with 7 males and 13 females
+summary(data_display)
+#Respondents         Sex       Father_Occupation PersonsAtHome  SiblingsAtSchool
+#Min.   : 1.00   Min.   :1.00   Min.   :1.00      Min.   : 3.0   Min.   :1.00    
+#1st Qu.: 5.75   1st Qu.:2.00   1st Qu.:1.00      1st Qu.: 5.0   1st Qu.:2.00    
+#Median :10.50   Median :2.00   Median :2.00      Median : 7.0   Median :2.50     Mean   :10.50   Mean   :1.85   Mean   :1.95      Mean   : 6.4   Mean   :2.95    
+#3rd Qu.:15.25   3rd Qu.:2.00   3rd Qu.:3.00      3rd Qu.: 8.0   3rd Qu.:4.25    
+#Max.   :20.00   Max.   :2.00   Max.   :3.00      Max.   :11.0   Max.   :6.00    
+#TypeOfHouses
+#Min.   :1.0  
+#1st Qu.:2.0  
+#Median :2.5  
+#Mean   :2.3  
+#3rd Qu.:3.0  
+#Max.   :3.0  
+ 
+#c. No
+#d.
+data1 <- subset (data_display)[1:2, 2:6, drop=FALSE]
+data1
+#Sex Father_Occupation PersonsAtHome SiblingsAtSchool TypeOfHouses
+#1   2                 1             5                6            1
+#2   2                 3             7                4            2
+#e.
+data2 <- data_display[c(3,5), c(2,4)]
+data2
+#Sex PersonsAtHome
+#3 1 3
+#5 2 5
+#f.
+types_houses <- data_display[c(6)]
+types_houses
+#TypeOfHouses
+#1             1
+#2             2
+#3             3
+#4             1
+#5             1
+#6             3
+#7             3
+#8             1
+#9             2
+#10            3
+#11            2
+#12            3
+#13            2
+#14            2
+#15            3
+#16            3
+#17            3
+#18            3
+#19            3
+#20            2
+#g
+selected_data <- data_display %>% select(1,2,3)
+data3 <- selected_data[data_display$Sex == 1,]
+data3
+#Respondents Sex Father_Occupation
+#3            3   1                 3
+#11          11   1                 3
+#19          19   1                 2
+#h
+selected_data2 <- data_display %>% select(1,2,5)
+female <- selected_data2[data_display$SiblingsAtSchool >= 5, ]
+female
+#Respondents Sex SiblingsAtSchool
+#1            1   2                6
+#7            7   2                5
+#13          13   2                5
+#14          14   2                5
+#18          18   2                5
+colnames(data_display) <- c("Respondents", "Sex", "Fathers Occupation", "Persons At Home", "Siblings At School", "Type Of Houses")
+#2. Write a R program to create an empty data frame. Using the following codes:
+df = data.frame(Ints=integer(),
+Doubles=double(), Characters=character(),
+Logicals=logical(),
+Factors=factor(),
+stringsAsFactors=FALSE)
+print("Structure of the empty dataframe:")
+#[1] "Structure of the empty dataframe:"
+print(str(df))
+#'data.frame':	0 obs. of  5 variables:
+# $ Ints      : int 
+# $ Doubles   : num 
+# $ Characters: chr 
+# $ Logicals  : logi 
+# $ Factors   : Factor w/ 0 levels: 
+#NULL
+#a.The output indicates that df is a dataframe with 0 observations (rows) and 5 variables (columns).
+#Create a .csv file of this. Save it as HouseholdData.csv
+#a
+new_Respondents <- c(seq(1,10))
+new_Sex <- c("Male","Female","Female","Male","Male","Female","Female","Male","Female","Male")
+new_Fathers_Occupation <- c(1,2,3,3,1,2,2,3,1,3)
+new_PersonsAtHome <- c(5,7,3,8,6,4,4,2,11,6)
+new_SiblingsAtSchool <- c(2,3,0,5,2,3,1,2,6,2)
+new_TypeOfHouses <- c ("Wood","Congrete","Congrete","Wood","Semi-Congrete","Semi-Congrete","Wood","Semi-Congrete","Semi-Congrete","Congrete")
+HouseholdData <- data.frame(new_Respondents,new_Sex,new_Fathers_Occupation,new_PersonsAtHome,new_SiblingsAtSchool,new_TypeOfHouses)
+
+#library(readr)
+#csv_file <- "HouseholdData.csv"
+#write.csv(HouseholdData, file = csv_file)
+#HouseholdData <- read.csv("HouseholdData.csv")
+#b
+data_display1 <- factor(HouseholdData$new_Sex, levels = c("Male" = 1, "Female" = 2))
+sex_mapping <- c("Male" = 1, "Female" = 2)
+data_display1<-as.integer(sex_mapping[HouseholdData$new_Sex])
+unique(data_display1)
+#[1] 1 2
+unique(HouseholdData$new_Sex)
+#[1] "Male"   "Female"
+#c
+data_display2 <- factor(HouseholdData$new_TypeOfHouses, levels = c("Wood" = 1, "Concrete" = 2, "Semi-Concrete" = 3))
+sex_mapping2 <- c("Wood" = 1, "Concrete" = 2, "Semi-Concrete" = 3)
+data_display2 <- as.integer(sex_mapping2[HouseholdData$new_TypeOfHouses])
+unique(data_display2)
+#[1] 1 2 3
+unique(HouseholdData$new_TypeOfHouses)
+#[1] "Wood" "Congrete" "Semi-Congrete"
+#d
+data_display3 <- factor(HouseholdData$new_Fathers_Occupation, labels = c("Farmer" = 1, "Driver" = 2,"Others"))
+sex_mapping3 <- c("Farmer" = 1, "Driver" = 2,"Others" = 3)
+data_display3 <- as.integer(sex_mapping3[HouseholdData$new_Fathers_Occupation])
+unique(data_display3)
+#[1] 1 2 3
+unique(HouseholdData$new_Fathers_Occupation)
+#[1] 1 2 3
+#e
+selected_data3 <- HouseholdData %>% select(2, 3,4)
+data4 <- selected_data3[HouseholdData$new_Fathers_Occupation == 2, ]
+data4
+#new_Respondents new_Sex new_Fathers_Occupation
+#2               2  Female                      2
+#6               6  Female                      2
+#7               7  Female                      2
+#f
+selected_data3 <- HouseholdData %>% select(2,6)
+data4 <- selected_data3[HouseholdData$new_SiblingsAtSchool >= 5,]
+data4
+#new_Respondents new_SiblingsAtSchool
+#4               4                    5
+#9               9                    6
+colnames(HouseholdData) <- c("Respondents", "Sex", "Fathers Occupation", "Persons At Home", "Siblings At School", "Type Of Houses")
+#4. Interpret the Graph
+#The "Sentiment of Tweets per Day" bar graph depicts three sentiment categories: Negative, Neutral, and Positive, which correspond to the dominant mindsets in July 2020.
+#- Negative Sentiment: Reflects unhappiness, criticism, or unfavorable feelings. Peaks on July 15 and July 21 point to intense debates or worries.
+#- Neutral Sentiment: Makes an objective, fair impression. prevailed in July 2020 on a number of days, including July 14, 15, 17, 18, and 21.
+#- Positive Sentiment: Displays upbeat, jubilant tweets. Positive tweets represent resiliency, hope, and a positive approach despite the negative sentiments on particular days (July 14, 15, 17, 18, and 21).
+#This graph, which highlights variations in Negative, Neutral, and Positive feelings on particular dates, gives a succinct overview of Twitter's sentiment trends in July 2020.
+
+
+
+```

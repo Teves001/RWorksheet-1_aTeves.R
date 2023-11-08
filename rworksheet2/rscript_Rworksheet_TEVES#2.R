@@ -1,0 +1,454 @@
+
+#1. create a vector using : operator
+seq <- c(-5:5)
+seq #a.The sequence displays the negative numbers from -5 then increases by 1 to positive 5 only
+#-5 -4 -3 -2 -1  0  1  2  3  4  5
+
+#b  
+x <- 1:7
+x #The value of x is 1 2 3 4 5 6 7
+
+
+#2.create a vector using  seq() function
+seq (1,3, by=0.2) #a.It increases its value by .2 until it reaches its maximum value at 3
+#1.0 1.2 1.4 1.6 1.8 2.0 2.2 2.4 2.6 2.8 3.0
+
+
+#3. 
+worker_age <- list( 34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43,53,41, 51, 35,24, 33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,18)
+worker_age
+#a
+worker_age[3] #Its value is 22 
+#b.
+worker_age1 <- worker_age[c(2,4)]
+worker_age1 #Its value is 28 & 36
+#c
+worker_age2 <- worker_age[-c(4,12)]
+worker_age2 
+# [[1]]
+# [1] 34
+# 
+# [[2]]
+# [1] 28
+# 
+# [[3]]
+# [1] 22
+# 
+# [[4]]
+# [1] 27
+# 
+# [[5]]
+# [1] 18
+# 
+# [[6]]
+# [1] 52
+# 
+# [[7]]
+# [1] 39
+# 
+# [[8]]
+# [1] 42
+# 
+# [[9]]
+# [1] 29
+# 
+# [[10]]
+# [1] 35
+# 
+# [[11]]
+# [1] 27
+# 
+# [[12]]
+# [1] 22
+# 
+# [[13]]
+# [1] 37
+# 
+# [[14]]
+# [1] 34
+# 
+# [[15]]
+# [1] 19
+# 
+# [[16]]
+# [1] 20
+# 
+# [[17]]
+# [1] 57
+# 
+# [[18]]
+# [1] 49
+# 
+# [[19]]
+# [1] 50
+# 
+# [[20]]
+# [1] 37
+# 
+# [[21]]
+# [1] 46
+# 
+# [[22]]
+# [1] 25
+# 
+# [[23]]
+# [1] 17
+# 
+# [[24]]
+# [1] 37
+# 
+# [[25]]
+# [1] 43
+# 
+# [[26]]
+# [1] 53
+# 
+# [[27]]
+# [1] 41
+# 
+# [[28]]
+# [1] 51
+# 
+# [[29]]
+# [1] 35
+# 
+# [[30]]
+# [1] 24
+# 
+# [[31]]
+# [1] 33
+# 
+# [[32]]
+# [1] 41
+# 
+# [[33]]
+# [1] 53
+# 
+# [[34]]
+# [1] 40
+# 
+# [[35]]
+# [1] 18
+# 
+# [[36]]
+# [1] 44
+# 
+# [[37]]
+# [1] 38
+# 
+# [[38]]
+# [1] 41
+# 
+# [[39]]
+# [1] 48
+# 
+# [[40]]
+# [1] 27
+# 
+# [[41]]
+# [1] 39
+# 
+# [[42]]
+# [1] 19
+# 
+# [[43]]
+# [1] 30
+# 
+# [[44]]
+# [1] 61
+# 
+# [[45]]
+# [1] 54
+# 
+# [[46]]
+# [1] 58
+# 
+# [[47]]
+# [1] 26
+# 
+# [[48]]
+# [1] 18
+#4
+num4 <- c("first"=3, "second"=0, "third"=9)
+num4 
+num4[c("first", "third")] 
+num4 
+#a. The output displays only the "first" and "third" variables using array.
+
+#b
+num4 <- c("first"=3, "second"=0, "third"=9)
+num4 # first second  third 
+#3      0      9 
+num4[c("first", "third")]
+# first third 
+#     3     9
+
+#5 a
+num5 <- c(-3:2)
+num5 #The second element in the array was changed to 0 and the result is when it is sequenced, the -2 was changed to 0
+num5[2] <- 0
+num5
+#b 
+num5 <- c(-3:2)
+num5 #-3 -2 -1  0  1  2
+
+num5[2] <- 0
+num5 # -3  0 -1  0  1  2
+
+
+#6 a
+month <- c("Jan", "Feb", "March", "Apr", "May", "June")
+price_per_liter <- c(52.50,57.25,60.00,65.00,74.25,54.00)
+purchase_quantity <- c(25,30,40,50,10,45)
+data.frame <- data.frame(month,price_per_liter,purchase_quantity)
+data.frame
+# month price_per_liter purchase_quantity
+# 1   Jan           52.50                25
+# 2   Feb           57.25                30
+# 3 March           60.00                40
+# 4   Apr           65.00                50
+# 5   May           74.25                10
+# 6  June           54.00                45
+
+#b 
+weighted.mean(price_per_liter,purchase_quantity) #The avg fuel expenditure of Mr. Cruz from Jan to June is 59.2625
+
+#7
+#a
+data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers), sd(rivers), min(rivers), max(rivers))
+data #b [1]141.0000  83357.0000    591.1844    425.0000 243908.4086    493.8708    135.0000   3710.0000 
+#c.
+data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers),
+          sd(rivers), min(rivers), max(rivers))
+data
+#The results are 141.0000  83357.0000    591.1844    425.0000 243908.4086    493.8708    135.0000   3710.0000
+
+#8
+#a
+power_ranking <- c(1:25)
+celebtrity_name <-c("Tom Cruise", "Rolling Stone", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", 
+                    "Cast of Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas",
+                    "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Bradd Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay   Lenon", "Celine Dion", "Kobe Bryant" )
+pay <- c(67,90,225,110,90,332,302,41,52,88,55,44,55,40,233,34,40,47,75,25,39,45,32,40,31)
+
+PowerRanking <- data.frame(power_ranking, celebtrity_name, pay)
+PowerRanking
+#b
+power_ranking[19] <- 15
+power_ranking 
+pay[19] <- 90
+pay
+
+#c
+csv_file <- "PowerRanking.csv"
+
+
+write.csv(PowerRanking,file = csv_file)
+
+PowerRankingCSV <- read.csv("PowerRanking.csv")
+
+Power_Ranking <- PowerRankingCSV[10:20,]
+Power_Ranking
+#d
+#                        power_ranking   celebrity_name      pay
+#           10            10                 Dan Brown        88
+#           11            11              Bruce Springsteen   55
+#           12            12                 Donald Trump     44
+#           13            13                Muhammad Ali      55
+#           14            14              Paul McCartney      40
+#           15            15             George Lucas        233
+#           16            16               Elton John         34
+#           17            17             David Letterman      40
+#           18            18              Phil Mickelson      47
+#           19            19               J.K Rowling        75
+#           20            20                Bradd Pitt        25
+
+#e The  PowerRank result was change to 10 to 20 elements.
+save(Power_Ranking, file = "Ranks.RData")
+load("Ranks.RData")
+
+
+#9
+library(readxl)
+hotels_vienna <- read_excel("hotels-vienna (1).xlsx")
+View(hotels_vienna)
+hotels_vienna
+#b
+dim(hotels_vienna)  #[1] 428  24
+
+#c
+col <- colnames(hotels_vienna)
+col
+colnames1 <- col[c(1,6,7,8,22,24)]
+colnames1 
+#[1] "country"            "neighbourhood"      "price"              "city"            "accommodation_type"
+#[6] "rating"
+
+#d
+save(hotels_vienna, file = "new.RData")
+new <-load("new.RData")
+View(new)
+
+head(hotels_vienna, 6) 
+# country city_actual rating_count center1label center2label neighbourhood price city   stars ratingta
+# <chr>   <chr>       <chr>        <chr>        <chr>        <chr>         <dbl> <chr>  <dbl> <chr>   
+#   1 Austria Vienna      36           City centre  Donauturm    17. Hernals      81 Vienna     4 4.5     
+# 2 Austria Vienna      189          City centre  Donauturm    17. Hernals      81 Vienna     4 3.5     
+# 3 Austria Vienna      53           City centre  Donauturm    Alsergrund       85 Vienna     4 3.5     
+# 4 Austria Vienna      55           City centre  Donauturm    Alsergrund       83 Vienna     3 4       
+# 5 Austria Vienna      33           City centre  Donauturm    Alsergrund       82 Vienna     4 3.5     
+# 6 Austria Vienna      25           City centre  Donauturm    Alsergrund      229 Vienna     5 4.5  
+tail(hotels_vienna, 6L)
+# 1 Austria Vienna      53           City centre  Donauturm    Wieden           73 Vienna   3   3       
+# 2 Austria Vienna      2            City centre  Donauturm    Wieden          109 Vienna   3   3       
+# 3 Austria Vienna      145          City centre  Donauturm    Wieden          185 Vienna   5   4       
+# 4 Austria Vienna      112          City centre  Donauturm    Wieden          100 Vienna   4   4.5     
+# 5 Austria Vienna      169          City centre  Donauturm    Wieden           58 Vienna   3   3       
+# 6 Austria Vienna      80           City centre  Donauturm    Wieden          110 Vienna   3.5 NA   
+
+#10
+vegetables <- list("cabbage", "carrot", "spinach","potato", "garlic", "corn", "onion", "tomato", "eggplant", "cucumber")
+vegetables
+# [[1]]
+# [1] "cabbage"
+# 
+# [[2]]
+# [1] "carrot"
+# 
+# [[3]]
+# [1] "spinach"
+# 
+# [[4]]
+# [1] "potato"
+# 
+# [[5]]
+# [1] "garlic"
+# 
+# [[6]]
+# [1] "corn"
+# 
+# [[7]]
+# [1] "onion"
+# 
+# [[8]]
+# [1] "tomato"
+# 
+# [[9]]
+# [1] "eggplant"
+# 
+# [[10]]
+# [1] "cucumber"
+
+#b Add 2 additional vegetables after the last vegetables in the list. What is the R script and its output?
+addVegetables <- c(vegetables, "mushroom", "ginger")
+addVegetables 
+
+#c Add 4 additional vegetables after index 5
+addVegetables4 <- append(addVegetables, c("lettuce", "zucchini", "radish", "bell pepper"), after = 5)
+addVegetables4
+num_vegetables <- length(addVegetables4)
+num_vegetables
+#c What is the R script and its output?
+addVegetables4 <- append(addVegetables, c("lettuce", "zucchini", "radish", "bell pepper"), after = 5)
+addVegetables4
+# [[1]]
+# [1] "cabbage"
+# 
+# [[2]]
+# [1] "carrot"
+# 
+# [[3]]
+# [1] "spinach"
+# 
+# [[4]]
+# [1] "potato"
+# 
+# [[5]]
+# [1] "garlic"
+# 
+# [[6]]
+# [1] "lettuce"
+# 
+# [[7]]
+# [1] "zucchini"
+# 
+# [[8]]
+# [1] "radish"
+# 
+# [[9]]
+# [1] "bell pepper"
+# 
+# [[10]]
+# [1] "corn"
+# 
+# [[11]]
+# [1] "onion"
+# 
+# [[12]]
+# [1] "tomato"
+# 
+# [[13]]
+# [1] "eggplant"
+# 
+# [[14]]
+# [1] "cucumber"
+# 
+# [[15]]
+# [1] "mushroom"
+# 
+# [[16]]
+# [1] "ginger"
+num_vegetables <- length(addVegetables4)
+num_vegetables #[1] 16
+
+#d.  
+addVegetables5 <- addVegetables4[-c(5,10,15)]
+addVegetables5 
+
+num_addVegetables5 <- length(addVegetables5)
+num_addVegetables5
+
+#Write the codes and its output.
+addVegetables5 <- addVegetables4[-c(5,10,15)]
+addVegetables5 
+# [[1]]
+# [1] "cabbage"
+# 
+# [[2]]
+# [1] "carrot"
+# 
+# [[3]]
+# [1] "spinach"
+# 
+# [[4]]
+# [1] "potato"
+# 
+# [[5]]
+# [1] "lettuce"
+# 
+# [[6]]
+# [1] "zucchini"
+# 
+# [[7]]
+# [1] "radish"
+# 
+# [[8]]
+# [1] "bell pepper"
+# 
+# [[9]]
+# [1] "onion"
+# 
+# [[10]]
+# [1] "tomato"
+# 
+# [[11]]
+# [1] "eggplant"
+# 
+# [[12]]
+# [1] "cucumber"
+# 
+# [[13]]
+# [1] "ginger"
+num_addVegetables5 <- length(addVegetables5)
+num_addVegetables5 #[1] 13
+
